@@ -7,7 +7,7 @@ export default function SettingsPage() {
         {/* <!-- Left Side --> */}
         <div className="w-full md:w-3/12 md:mx-2">
           {/* <!-- Profile Card --> */}
-          <div className="bg-white dark:bg-slate-800 p-3 border-t-4 border-blue-500">
+          <div className="bg-white dark:bg-slate-800 p-3 border-t-4 border-utdorange">
             <div className="image overflow-hidden">
               <img
                 className="h-[200px] w-[200px] mx-auto rounded-full"
@@ -30,7 +30,7 @@ export default function SettingsPage() {
               <li className="flex items-center py-3">
                 <span>Status</span>
                 <span className="ml-auto">
-                  <span className="bg-blue-500 py-1 px-2 rounded text-white text-sm">
+                  <span className="bg-emerald-400 py-1 px-2 rounded text-white text-sm">
                     Active
                   </span>
                 </span>
@@ -50,7 +50,7 @@ export default function SettingsPage() {
           {/* <!-- About Section --> */}
           <div className="bg-white dark:bg-slate-800 p-3 shadow-sm rounded-sm">
             <div className="flex items-center space-x-2 font-semibold text-gray-900 dark:text-white leading-8">
-              <span className="text-blue-500">
+              <span className="text-utdorange">
                 <svg
                   className="h-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ export default function SettingsPage() {
               <div>
                 <div className="flex items-center justify-between w-2/3 space-x-2 font-semibold dark:text-white text-gray-900 leading-8 mb-3">
                   <div className="flex items-center gap-x-2">
-                    <span className="text-blue-500">
+                    <span className="text-utdorange">
                       <svg
                         className="h-5"
                         xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +165,7 @@ export default function SettingsPage() {
                 </div>
                 <ul className="list-inside space-y-2">
                   <li>
-                    <div className="text-teal-600 dark:text-white">
+                    <div className="text-utdgreen dark:text-white">
                       Owner at Her Company Inc.
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
@@ -173,7 +173,7 @@ export default function SettingsPage() {
                     </div>
                   </li>
                   <li>
-                    <div className="text-teal-600 dark:text-white">
+                    <div className="text-utdgreen dark:text-white">
                       Owner at Her Company Inc.
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
@@ -181,7 +181,7 @@ export default function SettingsPage() {
                     </div>
                   </li>
                   <li>
-                    <div className="text-teal-600 dark:text-white">
+                    <div className="text-utdgreen dark:text-white">
                       Owner at Her Company Inc.
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
@@ -189,7 +189,7 @@ export default function SettingsPage() {
                     </div>
                   </li>
                   <li>
-                    <div className="text-teal-600 dark:text-white">
+                    <div className="text-utdgreen dark:text-white">
                       Owner at Her Company Inc.
                     </div>
                     <div className="text-gray-500 text-xs dark:text-white">
@@ -201,7 +201,7 @@ export default function SettingsPage() {
               <div>
                 <div className="flex items-center space-x-2 w-2/3 justify-between font-semibold dark:text-white text-gray-900 leading-8 mb-3">
                   <div className="flex items-center gap-x-2">
-                    <span className="text-blue-500">
+                    <span className="text-utdorange">
                       <svg
                         className="h-5"
                         xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +233,7 @@ export default function SettingsPage() {
                 </div>
                 <ul className="list-inside space-y-2">
                   <li>
-                    <div className="text-teal-600 dark:text-white">
+                    <div className="text-utdgreen dark:text-white">
                       Masters Degree in Oxford
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
@@ -241,7 +241,7 @@ export default function SettingsPage() {
                     </div>
                   </li>
                   <li>
-                    <div className="text-teal-600 dark:text-white">
+                    <div className="text-utdgreen dark:text-white">
                       Bachelors in LPU
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
@@ -256,7 +256,7 @@ export default function SettingsPage() {
           <div className="bg-white dark:bg-slate-800 p-3 pb-8 shadow-sm rounded-sm mt-4">
             <div className="flex items-center justify-between w-2/3 space-x-2 font-semibold dark:text-white text-gray-900 leading-8 mb-3">
               <div className="flex items-center gap-x-2">
-                <span className="text-blue-500">
+                <span className="text-utdorange">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
