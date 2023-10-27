@@ -1,5 +1,7 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
+import React, { useState } from 'react';
 
 export default function SchedulesPage() {
   //   const ref1 = useRef(null);
@@ -9,7 +11,7 @@ export default function SchedulesPage() {
     let res = [];
     for (let i = 0; i < 57; i++) {
       res.push(
-        <div className="border-b-2 font-mono col-span-full row-span-1">
+        <div className="border-b-2 font-mono col-span-full row-span-1 text-slate-800">
           {(Math.floor((15 * i) / 60) + 7).toString().padStart(2, "0")}:
           {((15 * i) % 60).toString().padStart(2, "0")}
         </div>
@@ -27,16 +29,30 @@ export default function SchedulesPage() {
   return (
     <div className="p-4 h-full">
       <div className="flex flex-row w-5/6 mx-auto h-5/6 rounded-lg shadow-xl">
-        <div className="basis-1/3 w-1/3 bg-blue-200 rounded-l-lg bg-white">
+        <div className="basis-1/3 w-1/3 bg-blue-200 rounded-l-lg bg-white dark:bg-slate-800">
           <h1 className="px-3 py-3 text-2xl font-semibold">
             Generated Schedules
           </h1>
           <ul>
-            <li className="border-2 m-4 rounded p-2 cursor-pointer">
-              <h1 className="font-bold">Schedule A</h1>
+            <li className="border-2 m-4 rounded p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 hover:text-white dark:hover:border-gray-800 pr-6">
+              <h1 className="font-bold">Schedule 1</h1>
               <p className="text-ellipsis overflow-hidden whitespace-nowrap">
                 4000-CS-001, 4000-CS-002, 4000-CS-003, 4000-CS-004 4000-CS-001,
                 4000-CS-002, 4000-CS-003, 4000-CS-004
+              </p>
+            </li>
+            <li className="m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 hover:text-white dark:hover:border-gray-800 pr-6">
+              <h1 className="font-bold">Schedule 2</h1>
+              <p className ="text-ellipsis overflow-hidden whitespace-nowrap">
+                4000-CS-001, 4000-CS-002, 4000-CS-003, 4000-CS-004 4000-CS-001,
+                4000-CS-002, 4000-CS-002, 4000-CS-004
+              </p>
+            </li>
+            <li className="m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 hover:text-white dark:hover:border-gray-800 pr-6">
+              <h1 className="font-bold">Schedule 3</h1>
+              <p className ="text-ellipsis overflow-hidden whitespace-nowrap">
+                4000-CS-001, 4000-CS-002, 4000-CS-003, 4000-CS-004 4000-CS-001,
+                4000-CS-002, 4000-CS-003, 4000-CS-003
               </p>
             </li>
           </ul>
@@ -45,17 +61,17 @@ export default function SchedulesPage() {
           <div className="grid grid-cols-1 grid-rows-57 px-4">
             {generateGridRows()}
           </div>
-          <div className="absolute w-full top-0 left-0 pl-20 grid grid-cols-1 grid-rows-57">
+          <div className="absolute w-full top-0 left-0 pl-20 pr-4 grid grid-cols-1 grid-rows-57">
             <div className="col-span-full bg-red-200/50 row-span-5 row-start-3 p-1 hover:bg-red-200/80">
-              <p className="">CS 4000.001</p>
+              <p className="text-slate-800">CS 4000.001</p>
             </div>
 
             <div className="col-span-full bg-blue-200/50 row-span-5 row-start-[11] p-1 hover:bg-blue-200/80">
-              <p className="">CS 4000.002</p>
+              <p className="text-slate-800">CS 4000.002</p>
             </div>
 
             <div className="col-span-full bg-green-200/50 row-span-5 row-start-[31] p-1 hover:bg-green-200/80">
-              <p className="">CS 4000.002</p>
+              <p className="text-slate-800">CS 4000.002</p>
             </div>
           </div>
         </div>
