@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function SchedulesPage() {
   //   const ref1 = useRef(null);
@@ -34,23 +34,23 @@ export default function SchedulesPage() {
             Generated Schedules
           </h1>
           <ul>
-            <li className="border-2 m-4 rounded p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 hover:text-white dark:hover:border-gray-800 pr-6">
+            <li className="border-l-4 border-utdorange bg-utdorange/20 m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 dark:hover:border-gray-800 pr-6">
               <h1 className="font-bold">Schedule 1</h1>
               <p className="text-ellipsis overflow-hidden whitespace-nowrap">
                 4000-CS-001, 4000-CS-002, 4000-CS-003, 4000-CS-004 4000-CS-001,
                 4000-CS-002, 4000-CS-003, 4000-CS-004
               </p>
             </li>
-            <li className="m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 hover:text-white dark:hover:border-gray-800 pr-6">
+            <li className="m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 dark:hover:border-gray-800 pr-6 hover:bg-utdorange/20">
               <h1 className="font-bold">Schedule 2</h1>
-              <p className ="text-ellipsis overflow-hidden whitespace-nowrap">
+              <p className="text-ellipsis overflow-hidden whitespace-nowrap">
                 4000-CS-001, 4000-CS-002, 4000-CS-003, 4000-CS-004 4000-CS-001,
                 4000-CS-002, 4000-CS-002, 4000-CS-004
               </p>
             </li>
-            <li className="m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 hover:text-white dark:hover:border-gray-800 pr-6">
+            <li className="m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 dark:hover:border-gray-800 pr-6 hover:bg-utdorange/20">
               <h1 className="font-bold">Schedule 3</h1>
-              <p className ="text-ellipsis overflow-hidden whitespace-nowrap">
+              <p className="text-ellipsis overflow-hidden whitespace-nowrap">
                 4000-CS-001, 4000-CS-002, 4000-CS-003, 4000-CS-004 4000-CS-001,
                 4000-CS-002, 4000-CS-003, 4000-CS-003
               </p>
