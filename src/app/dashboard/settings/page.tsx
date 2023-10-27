@@ -1,8 +1,18 @@
 "use client";
 
+import Link from "next/link";
+import { useState } from "react";
+import { dummy_edu, dummy_exp } from "./static/dummy_data";
+
 export default function SettingsPage() {
+  const [allowEmailNotifs, setAllowEmailNotifs] = useState<boolean>(false);
+  const [allowTextNotifs, setAllowTextNotifs] = useState<boolean>(false);
+
+  const [education, setEducation] = useState(dummy_edu);
+  const [experience, setExperience] = useState(dummy_exp);
+
   return (
-    <div className="container mx-auto my-5 p-5">
+    <div className="container mx-auto my-5 px-5 pb-[200px]">
       <div className="md:flex no-wrap md:-mx-2 ">
         {/* <!-- Left Side --> */}
         <div className="w-full md:w-3/12 md:mx-2">
@@ -92,20 +102,19 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="grid grid-cols-2">
-                  <div className="px-4 py-2 font-semibold">Email.</div>
+                  <div className="px-4 py-2 font-semibold">Email</div>
                   <div className="px-4 py-2">
                     <a className="text-blue-800" href="mailto:jane@example.com">
                       jane@example.com
                     </a>
                   </div>
                 </div>
-                <div className="grid grid-cols-2">
-                  <div className="px-4 py-2 font-semibold">Birthday</div>
-                  <div className="px-4 py-2">Feb 06, 1998</div>
-                </div>
               </div>
             </div>
-            <button className="block w-full text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
+            <Link
+              href="/dashboard/settings/edit/info"
+              className="block w-full text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+            >
               <span className="w-max flex mx-auto items-center justify-center gap-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +132,7 @@ export default function SettingsPage() {
                 </svg>
                 Edit Information
               </span>
-            </button>
+            </Link>
           </div>
           {/* <!-- End of about section --> */}
 
@@ -153,48 +162,78 @@ export default function SettingsPage() {
                     </span>
                     <span className="tracking-wide">Experience</span>
                   </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-                    <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
-                  </svg>
                 </div>
                 <ul className="list-inside space-y-2">
-                  <li>
+                  <li className="border-2 border-white px-2 hover:border-black relative group">
                     <div className="text-utdgreen dark:text-white">
                       Owner at Her Company Inc.
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
                       March 2020 - Now
                     </div>
+                    <button
+                      className="absolute top-0 right-0 hidden group-hover:block text-red-500"
+                      onClick={(e) => {
+                        console.log(e.currentTarget.parentElement);
+                        e.currentTarget.parentElement!.style.display = "none";
+                      }}
+                    >
+                      Remove
+                    </button>
                   </li>
-                  <li>
+                  <li className="border-2 border-white px-2 hover:border-black relative group">
                     <div className="text-utdgreen dark:text-white">
                       Owner at Her Company Inc.
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
                       March 2020 - Now
                     </div>
+                    <button
+                      className="absolute top-0 right-0 hidden group-hover:block text-red-500"
+                      onClick={(e) => {
+                        console.log(e.currentTarget.parentElement);
+                        e.currentTarget.parentElement!.style.display = "none";
+                      }}
+                    >
+                      Remove
+                    </button>
                   </li>
-                  <li>
+                  <li className="border-2 border-white px-2 hover:border-black relative group">
                     <div className="text-utdgreen dark:text-white">
                       Owner at Her Company Inc.
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
                       March 2020 - Now
                     </div>
+                    <button
+                      className="absolute top-0 right-0 hidden group-hover:block text-red-500"
+                      onClick={(e) => {
+                        console.log(e.currentTarget.parentElement);
+                        e.currentTarget.parentElement!.style.display = "none";
+                      }}
+                    >
+                      Remove
+                    </button>
                   </li>
-                  <li>
+                  <li className="border-2 border-white px-2 hover:border-black relative group">
                     <div className="text-utdgreen dark:text-white">
                       Owner at Her Company Inc.
                     </div>
                     <div className="text-gray-500 text-xs dark:text-white">
                       March 2020 - Now
                     </div>
+                    <button
+                      className="absolute top-0 right-0 hidden group-hover:block text-red-500"
+                      onClick={(e) => {
+                        console.log(e.currentTarget.parentElement);
+                        e.currentTarget.parentElement!.style.display = "none";
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </li>
+                  <li className="bg-gray-50 border-2 rounded-lg mx-2 py-2 hover:bg-emerald-200 hover:border-green-400 duration-300 cursor-pointer">
+                    <p className="w-full text-center">Add Experience</p>
                   </li>
                 </ul>
               </div>
@@ -221,32 +260,44 @@ export default function SettingsPage() {
                     </span>
                     <span className="tracking-wide">Education</span>
                   </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-                    <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
-                  </svg>
                 </div>
                 <ul className="list-inside space-y-2">
-                  <li>
+                  <li className="border-2 border-white px-2 hover:border-black relative group">
                     <div className="text-utdgreen dark:text-white">
                       Masters Degree in Oxford
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
                       March 2020 - Now
                     </div>
+                    <button
+                      className="absolute top-0 right-0 hidden group-hover:block text-red-500"
+                      onClick={(e) => {
+                        console.log(e.currentTarget.parentElement);
+                        e.currentTarget.parentElement!.style.display = "none";
+                      }}
+                    >
+                      Remove
+                    </button>
                   </li>
-                  <li>
+                  <li className="border-2 border-white px-2 hover:border-black relative group">
                     <div className="text-utdgreen dark:text-white">
                       Bachelors in LPU
                     </div>
                     <div className="text-gray-500 dark:text-white text-xs">
                       March 2020 - Now
                     </div>
+                    <button
+                      className="absolute top-0 right-0 hidden group-hover:block text-red-500"
+                      onClick={(e) => {
+                        console.log(e.currentTarget.parentElement);
+                        e.currentTarget.parentElement!.style.display = "none";
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </li>
+                  <li className="bg-gray-50 border-2 rounded-lg mx-2 py-2 hover:bg-emerald-200 hover:border-green-400 duration-300 cursor-pointer">
+                    <p className="w-full text-center">Add Education</p>
                   </li>
                 </ul>
               </div>
@@ -283,12 +334,12 @@ export default function SettingsPage() {
                     type="checkbox"
                     value=""
                     className="sr-only peer"
-                    checked={false}
+                    checked={allowEmailNotifs}
                     onChange={(event) => {
-                      null;
+                      setAllowEmailNotifs(event.currentTarget.checked);
                     }}
                   />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-checked:after:border-slate-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white dark:after:bg-slate-500 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-mooylw"></div>
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-checked:after:border-slate-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white dark:after:bg-slate-500 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-emerald-200"></div>
                 </label>
               </div>
 
@@ -299,12 +350,12 @@ export default function SettingsPage() {
                     type="checkbox"
                     value=""
                     className="sr-only peer"
-                    checked={true}
-                    onChange={() => {
-                      null;
+                    checked={allowTextNotifs}
+                    onChange={(event) => {
+                      setAllowTextNotifs(event.currentTarget.checked);
                     }}
                   />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-checked:after:border-slate-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white dark:after:bg-slate-500 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-mooylw"></div>
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-checked:after:border-slate-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white dark:after:bg-slate-500 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-emerald-200"></div>
                 </label>
               </div>
             </form>
