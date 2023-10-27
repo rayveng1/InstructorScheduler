@@ -17,6 +17,9 @@ const config: Config = {
         utdgreen: "#154734",
         utdorange: "#e87500",
       },
+      gridTemplateRows: {
+        "57": "repeat(56, 40px)",
+      },
     },
   },
   plugins: [],
