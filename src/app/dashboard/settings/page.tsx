@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
+
 export default function SettingsPage() {
   return (
-    <div className="container mx-auto my-5 p-5">
+    <div className="container mx-auto my-5 px-5 pb-[200px]">
       <div className="md:flex no-wrap md:-mx-2 ">
         {/* <!-- Left Side --> */}
         <div className="w-full md:w-3/12 md:mx-2">
@@ -92,20 +94,19 @@ export default function SettingsPage() {
                 </div>
 
                 <div className="grid grid-cols-2">
-                  <div className="px-4 py-2 font-semibold">Email.</div>
+                  <div className="px-4 py-2 font-semibold">Email</div>
                   <div className="px-4 py-2">
                     <a className="text-blue-800" href="mailto:jane@example.com">
                       jane@example.com
                     </a>
                   </div>
                 </div>
-                <div className="grid grid-cols-2">
-                  <div className="px-4 py-2 font-semibold">Birthday</div>
-                  <div className="px-4 py-2">Feb 06, 1998</div>
-                </div>
               </div>
             </div>
-            <button className="block w-full text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">
+            <Link
+              href="/dashboard/settings/edit/info"
+              className="block w-full text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4"
+            >
               <span className="w-max flex mx-auto items-center justify-center gap-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +124,7 @@ export default function SettingsPage() {
                 </svg>
                 Edit Information
               </span>
-            </button>
+            </Link>
           </div>
           {/* <!-- End of about section --> */}
 
@@ -153,15 +154,17 @@ export default function SettingsPage() {
                     </span>
                     <span className="tracking-wide">Experience</span>
                   </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-                    <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
-                  </svg>
+                  <Link href="/dashboard/settings/edit/expedu">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-5 h-5 fill-utdorange"
+                    >
+                      <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
+                      <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+                    </svg>
+                  </Link>
                 </div>
                 <ul className="list-inside space-y-2">
                   <li>
@@ -225,7 +228,7 @@ export default function SettingsPage() {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
-                    className="w-5 h-5"
+                    className="w-5 h-5 fill-utdorange"
                   >
                     <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
                     <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
