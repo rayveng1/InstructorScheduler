@@ -44,6 +44,18 @@ export default function EditSettingsInfoPage() {
               ></input>
             </div>
           </div>
+          {/*
+          <div className="col-span-1">
+            <div className="w-full mx-auto">
+              <p className="font-semibold">Gender</p>
+              <select className="bg-gray-50 h-8 w-2/3 px-2 rounded text-black border-2 border-gray-300">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          */}
         </div>
         <div className="w-full flex items-center justify-center gap-x-3 mt-4">
           <Link
