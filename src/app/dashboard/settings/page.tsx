@@ -31,25 +31,6 @@ export default function SettingsPage() {
             <h3 className="text-gray-600 dark:text-white font-lg text-semibold leading-6">
               Assist. Prof. of Instruction - Computer Science
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-300 leading-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reprehenderit, eligendi dolorum sequi illum qui unde aspernatur
-              non deserunt
-            </p>
-            <ul className="bg-gray-100 dark:bg-slate-700 dark:text-white text-gray-600 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
-              <li className="flex items-center py-3">
-                <span>Status</span>
-                <span className="ml-auto">
-                  <span className="bg-emerald-400 py-1 px-2 rounded text-white text-sm">
-                    Active
-                  </span>
-                </span>
-              </li>
-              <li className="flex items-center py-3">
-                <span>Member since</span>
-                <span className="ml-auto">Nov 07, 2016</span>
-              </li>
-            </ul>
           </div>
           {/* <!-- End of profile card --> */}
           <div className="my-4"></div>
