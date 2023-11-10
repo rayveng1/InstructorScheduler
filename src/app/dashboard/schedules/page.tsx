@@ -65,11 +65,10 @@ export default function SchedulesPage() {
 
       res.push(
         <div
-          className={`${col_span} ${
-            colors[colorindex]
-          } ${row_span} ${starting_col} row-start-[${
-            2 + timeDifference("7:15", course.courseStart)
-          }] p-1 ${colors_hover[colorindex]}`}
+          style={{
+            gridRowStart: 2 + timeDifference("7:15", course.courseStart),
+          }}
+          className={`${col_span} ${colors[colorindex]} ${row_span} ${starting_col} p-1 ${colors_hover[colorindex]}`}
         >
           <p className="text-slate-800">{course.courseName}</p>
         </div>
@@ -153,10 +152,9 @@ export default function SchedulesPage() {
                     : `m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 dark:hover:border-gray-800 pr-6`
                 }
               >
-                <h1 className="font-bold">Schedule 1</h1>
+                <h1 className="font-bold">{schedule.scheduleName}</h1>
                 <p className="text-ellipsis overflow-hidden whitespace-nowrap">
-                  4000-CS-001, 4000-CS-002, 4000-CS-003, 4000-CS-004
-                  4000-CS-001, 4000-CS-002, 4000-CS-003, 4000-CS-004
+                  {schedule.courses.map((item) => item.courseName).join(" ")}
                 </p>
               </li>
             ))}
