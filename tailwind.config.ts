@@ -18,7 +18,10 @@ const config: Config = {
         utdorange: "#e87500",
       },
       gridTemplateRows: {
-        "57": "repeat(56, 40px)",
+        "57": "repeat(57, 40px)",
+      },
+      gridTemplateColumns: {
+        week: "100px repeat(5, minmax(0, 1fr))",
       },
     },
   },
