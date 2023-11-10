@@ -123,7 +123,19 @@ export default function SchedulesPage() {
   };
 
   return (
-    <div className="p-4 h-full">
+    <div className="p-4 h-full overflow-y-scroll relative">
+      <div className="bg-slate-800 rounded-r-lg md:w-5/6 mx-auto rounded-lg h-2/3 m-4 ">
+        <h1 className="px-3 py-3 text-2xl font-semibold">
+          Preferences
+        </h1>
+        <Link
+            href="/dashboard/schedules/add/class"
+            className="block w-1/6 text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-2 ml-auto">
+            <span className="w-max flex mx-auto items-center justify-center gap-x-2">
+              Add Class
+            </span>
+        </Link>
+      </div>
       <div className="flex flex-row w-5/6 mx-auto h-5/6 rounded-lg shadow-xl">
         <div className="basis-1/3 w-1/3 bg-blue-200 rounded-l-lg bg-white dark:bg-slate-800">
           <h1 className="px-3 py-3 text-2xl font-semibold">
