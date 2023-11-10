@@ -85,12 +85,12 @@ export default function SettingsPage() {
                   <div className="px-4 py-2">Jane</div>
                 </div>
                 <div className="grid grid-cols-2">
-                  <div className="px-4 py-2 font-semibold">Phone</div>
-                  <div className="px-4 py-2">(555) 555-5555</div>
-                </div>
-                <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">Last Name</div>
                   <div className="px-4 py-2">Doe</div>
+                </div>
+                <div className="grid grid-cols-2">
+                  <div className="px-4 py-2 font-semibold">Phone</div>
+                  <div className="px-4 py-2">(555) 555-5555</div>
                 </div>
                 <div className="grid grid-cols-2">
                   <div className="px-4 py-2 font-semibold">Email</div>
