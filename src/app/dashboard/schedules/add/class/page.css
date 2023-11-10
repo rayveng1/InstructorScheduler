@@ -1,0 +1,11 @@
+.tabs {
+    display: flex;
+}
+
+.tab {
+    cursor: pointer;
+}
+
+.active-tab {
+    border: none;
+}

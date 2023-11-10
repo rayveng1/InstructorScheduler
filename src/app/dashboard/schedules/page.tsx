@@ -32,13 +32,41 @@ export default function SchedulesPage() {
         <h1 className="px-3 py-3 text-2xl font-semibold">
           Preferences
         </h1>
-        <Link
-            href="/dashboard/schedules/add/class"
-            className="block w-1/6 text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-2 ml-auto">
-            <span className="w-max flex mx-auto items-center justify-center gap-x-2">
-              Add Class
-            </span>
-        </Link>
+        <div className="flex">
+          <h2 className="px-3 py-3 text-xl font-semibold">
+            Courses
+          </h2>
+          <Link
+              href="/dashboard/schedules/add/class"
+              className="block w-1/6 text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-4 ml-auto">
+              <span className="w-max flex mx-auto items-center justify-center gap-x-2">
+                Add Class
+              </span>
+          </Link>
+          <h2 className="px-3 py-3 text-xl font-semibold">
+            Time Availability
+          </h2>
+          <Link
+              href="/dashboard/schedules/add/time"
+              className="block w-1/6 text-blue-800 dark:text-blue-300 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-4 ml-auto">
+              <span className="w-max flex mx-auto items-center justify-center gap-x-2">
+                Add Time/Breaks
+              </span>
+          </Link>
+        </div>
+        <div className="flex">
+          <p className="px-3 py-3 text-lg">
+            Add your courses here
+          </p>
+          <p className="px-3 py-3 text-lg mx-auto">
+            Add your times/breaks here
+          </p>
+        </div>
+        <ul className=" w-1/6 bg-utdorange/50 border-2 border-utdorange rounded-lg mx-2 py-2 hover:bg-emerald-200 hover:border-green-400 duration-300 cursor-pointer ml-auto">
+          <p className="w-full text-center">
+            Generate Schedule
+          </p>
+        </ul>
       </div>
       <div className="flex flex-row w-5/6 mx-auto h-5/6 rounded-lg shadow-xl">
         <div className="basis-1/3 w-1/3 bg-blue-200 rounded-l-lg bg-white dark:bg-slate-800">
