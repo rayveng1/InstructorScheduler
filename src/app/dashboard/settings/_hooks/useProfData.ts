@@ -11,10 +11,11 @@ export default function useProfData(id: string | null): Return {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/Instructor/${id}`)
+    fetch(`http://localhost:8080/Instructor/3`)
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
+        console.log(data);
+        setData(data[0]);
         setIsLoading(false);
       })
       .catch((err) => {

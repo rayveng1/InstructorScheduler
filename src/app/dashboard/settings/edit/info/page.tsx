@@ -12,21 +12,28 @@ export default function EditSettingsInfoPage() {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
 
-    let body = {
+    // @ts-ignore
+    const first = e.currentTarget.first.value;
+    // @ts-ignore
+    const last = e.currentTarget.last.value;
+
+    const body = {
       ...data,
     };
 
     // @ts-ignore
-    body.name = `${e.currentTarget.first} ${e.currentTarget.last}`;
+    body.name = `${first} ${last}`;
 
     //@ts-ignore
-    body.email = e.currentTarget.email;
+    body.email = e.currentTarget.email.value;
 
     // @ts-ignore
-    body.phone = e.currentTarget.phone;
+    body.phone = e.currentTarget.phone.value;
 
-    fetch("http://localhost:8080", {
-      method: "POST",
+    console.log(body);
+
+    fetch("http://localhost:8080/Instructor", {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -61,7 +68,7 @@ export default function EditSettingsInfoPage() {
                   type="text"
                   className="rounded w-full h-8 bg-gray-50 border-2 border-gray-300"
                   name="first"
-                  defaultValue={data.name.split("")[0]}
+                  defaultValue={data.name.split(" ")[0]}
                 ></input>
               </div>
             </div>
@@ -72,7 +79,7 @@ export default function EditSettingsInfoPage() {
                   type="text"
                   className="rounded w-full h-8 bg-gray-50 border-2 border-gray-300"
                   name="last"
-                  defaultValue={data.name.split("")[1]}
+                  defaultValue={data.name.split(" ")[1]}
                 ></input>
               </div>
             </div>

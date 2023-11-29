@@ -8,17 +8,20 @@ import useProfData from "./_hooks/useProfData";
 export default function SettingsPage() {
   const searchParams = useSearchParams();
 
-  const [allowEmailNotifs, setAllowEmailNotifs] = useState<boolean>(false);
-  const [allowTextNotifs, setAllowTextNotifs] = useState<boolean>(false);
-
   const { data, isLoading } = useProfData(searchParams.get("id"));
 
-  const handleUpdateNotif = (isEmail: boolean, isText: boolean) => {
+  const [allowEmailNotifs, setAllowEmailNotifs] = useState<boolean>();
+  const [allowTextNotifs, setAllowTextNotifs] = useState<boolean>();
+
+  const handleUpdateNotif = (isEmail: boolean, isText: boolean, value: any) => {
+    console.log("YOHO", value);
     const body = {
       ...data,
     };
-    if (isEmail) body.email_notification = allowEmailNotifs;
-    if (isText) body.phone_notification = allowTextNotifs;
+    if (isEmail) body.email_notification = value;
+    if (isText) body.phone_notification = value;
+
+    console.log(body);
 
     fetch("http://localhost:8080/Instructor", {
       method: "PUT",
@@ -173,11 +176,18 @@ export default function SettingsPage() {
                         type="checkbox"
                         value=""
                         className="sr-only peer"
-                        checked={allowEmailNotifs}
-                        defaultChecked={data.email_notification}
+                        checked={
+                          allowEmailNotifs ?? data.email_notification
+                            ? true
+                            : false
+                        }
                         onChange={(event) => {
                           setAllowEmailNotifs(event.currentTarget.checked);
-                          handleUpdateNotif(true, false);
+                          handleUpdateNotif(
+                            true,
+                            false,
+                            event.currentTarget.checked
+                          );
                         }}
                       />
                       <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-checked:after:border-slate-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white dark:after:bg-slate-500 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-emerald-200"></div>
@@ -191,11 +201,18 @@ export default function SettingsPage() {
                         type="checkbox"
                         value=""
                         className="sr-only peer"
-                        checked={allowTextNotifs}
-                        defaultChecked={data.phone_notification}
+                        checked={
+                          allowTextNotifs ?? data.phone_notification
+                            ? true
+                            : false
+                        }
                         onChange={(event) => {
                           setAllowTextNotifs(event.currentTarget.checked);
-                          handleUpdateNotif(false, true);
+                          handleUpdateNotif(
+                            false,
+                            true,
+                            event.currentTarget.checked
+                          );
                         }}
                       />
                       <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white dark:peer-checked:after:border-slate-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white dark:after:bg-slate-500 after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-emerald-200"></div>

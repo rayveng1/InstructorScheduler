@@ -5,7 +5,7 @@ export interface Professor {
   phone: string | null;
   experience: any;
   education: any;
-  email_notification: boolean;
-  phone_notification: boolean;
+  email_notification: number;
+  phone_notification: number;
   instructor_schedule: any;
 }
