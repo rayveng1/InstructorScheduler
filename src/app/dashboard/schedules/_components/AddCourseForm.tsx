@@ -153,13 +153,12 @@ const AddCourseForm: FunctionComponent<Props> = ({
         <button
           className="bg-utdgreen px-3 py-1 rounded text-white"
           onClick={() => {
-            bulkUpdateCourses(
-              localCoursesCpy.map((item: any) => {
-                let obj: any = {};
-                obj[item.courseNumber] = null;
-                return obj;
-              })
-            );
+            let obj: any = {};
+            localCoursesCpy.map((item: any) => {
+              obj[item.courseNumber] = null;
+            });
+
+            bulkUpdateCourses(obj);
             forward();
           }}
         >

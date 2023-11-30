@@ -1,4 +1,5 @@
 "use client";
+import timeToMinutes from "@/app/util/time";
 import generateUUID from "@/app/util/uuid";
 import { FunctionComponent, useState } from "react";
 
@@ -595,31 +596,35 @@ const AddAvail: FunctionComponent<Props> = ({
         <button
           className="bg-utdgreen px-3 py-1 rounded text-white"
           onClick={() => {
+            const toMins = (arr: Array<string>) => {
+              return [timeToMinutes(arr[0]), timeToMinutes(arr[1])];
+            };
+
             const all: any = {};
 
             if (mon.length > 0) {
               all.Monday = mon.map((item) => {
-                return item.time;
+                return toMins(item.time);
               });
             }
             if (tue.length > 0) {
               all.Tuesday = tue.map((item) => {
-                return item.time;
+                return toMins(item.time);
               });
             }
             if (wed.length > 0) {
               all.Wednesday = wed.map((item) => {
-                return item.time;
+                return toMins(item.time);
               });
             }
             if (thu.length > 0) {
               all.Thursday = thu.map((item) => {
-                return item.time;
+                return toMins(item.time);
               });
             }
             if (fri.length > 0) {
               all.Friday = fri.map((item) => {
-                return item.time;
+                return toMins(item.time);
               });
             }
 
