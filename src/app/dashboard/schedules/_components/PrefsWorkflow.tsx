@@ -5,7 +5,11 @@ import AddCourseForm from "./AddCourseForm";
 import AddAvail from "./AddAvail";
 import AddWeights from "./AddWeights";
 
-const PrefsWorkflow: FunctionComponent = () => {
+type Props = {
+  complete: Function;
+};
+
+const PrefsWorkflow: FunctionComponent<Props> = ({ complete }) => {
   const [step, setStep] = useState<number>(0);
   const [selectedCourses, setSelectedCourses] = useState<any>();
   const [selectedTimes, setSelectedTimes] = useState<any>();
@@ -23,14 +27,38 @@ const PrefsWorkflow: FunctionComponent = () => {
   };
 
   const handleAdvance = () => {
-    if (step + 1 <= 2) setStep(step + 1);
-    if (step === 2) {
-      handleSubmitAction();
-    }
+    if (step + 1 <= 3) setStep(step + 1);
   };
 
   const handleSubmitAction = () => {
-    fetch(`TODO`);
+    fetch("http://localhost:8080/api/professor", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+      body: JSON.stringify({
+        professors: [
+          {
+            name: "Dongji Yang",
+            availability: selectedTimes,
+            preferences: {
+              ...selectedCourses,
+            },
+          },
+        ],
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.message === "Professor data received successfully") {
+          complete();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   const getStep = () => {
@@ -59,6 +87,17 @@ const PrefsWorkflow: FunctionComponent = () => {
             bulkUpdateCourses={handleSetCourses}
             courses={selectedCourses}
           ></AddWeights>
+        );
+      case 3:
+        return (
+          <div className="w-full h-full flex items-center justify-center py-7">
+            <button
+              className="bg-utdorange w-max px-4 py-2 mx-auto rounded"
+              onClick={handleSubmitAction}
+            >
+              Generate Schedule
+            </button>
+          </div>
         );
     }
   };
