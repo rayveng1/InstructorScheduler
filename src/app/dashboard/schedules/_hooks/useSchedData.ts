@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { Schedule } from "../_static/dummy_data";
+import {
+  Schedule,
+  dummy_schedule_data,
+  dummy_schedule_data_2,
+} from "../_static/dummy_data";
 
 export default function useSchedData(selectedPage: number): {
   isLoading: boolean;
@@ -9,17 +13,21 @@ export default function useSchedData(selectedPage: number): {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetch("http://localhost:8080/getSolution")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setData(data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setIsLoading(false);
-      });
+    if (process.env.NODE_ENV === "development") {
+      setData(dummy_schedule_data_2);
+    } else {
+      fetch("http://localhost:8080/getSolution")
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setData(data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setIsLoading(false);
+        });
+    }
   }, [selectedPage]);
 
   return {
