@@ -103,17 +103,12 @@ const PrefsWorkflow: FunctionComponent<Props> = ({ complete }) => {
   };
 
   return (
-    <section className="dark:bg-slate-800 bg-white rounded-r-lg md:w-5/6 mx-auto rounded-lg h-2/3 m-4 flex flex-col items-center">
+    <section className="dark:bg-slate-800 bg-white rounded-r-lg md:w-5/6 mx-auto rounded-lg h-max m-4 flex flex-col items-center">
       <div className="w-max pt-4">
         <Breadcrumb progress={step as 0 | 1 | 2}></Breadcrumb>
       </div>
 
       <section className="w-full">{getStep()}</section>
-
-      {/* debugging */}
-      <small>
-        {JSON.stringify(selectedCourses)} {JSON.stringify(selectedTimes)}
-      </small>
     </section>
   );
 };
