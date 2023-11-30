@@ -56,40 +56,42 @@ export default function SchedulesPage() {
     let res: any = [];
 
     schedule.courses.map((course: Course, index) => {
-      const starting_col = Math.min(...course.courseDays) + 1;
-      const col_span = course.courseDays.length;
-
-      const row_span = timeDifference(course.courseStart, course.courseEnd);
-
-      const grid_row_start = 2 + timeDifference("7:15", course.courseStart);
-
-      console.log(
-        course.courseName,
-        "Starting Col",
-        starting_col,
-        "Col Span",
-        col_span,
-        "Row Span",
-        row_span,
-        "Grid Row Srart",
-        grid_row_start
-      );
-
       const colorindex = getRandomInt(colors.length - 1);
 
-      res.push(
-        <div
-          style={{
-            gridRowStart: grid_row_start,
-            gridColumn: `span ${col_span} / span ${col_span}`,
-            gridRowEnd: grid_row_start + row_span,
-            gridColumnStart: starting_col,
-          }}
-          className={`${colors[colorindex]} p-1 ${colors_hover[colorindex]}`}
-        >
-          <p className="text-slate-800">{course.courseName}</p>
-        </div>
-      );
+      for (let i = 0; i < course.courseDays.length; i++) {
+        const starting_col = course.courseDays[i] + 1;
+        const col_span = 1;
+
+        const row_span = timeDifference(course.courseStart, course.courseEnd);
+
+        const grid_row_start = 2 + timeDifference("7:15", course.courseStart);
+
+        // console.log(
+        //   course.courseName,
+        //   "Starting Col",
+        //   starting_col,
+        //   "Col Span",
+        //   col_span,
+        //   "Row Span",
+        //   row_span,
+        //   "Grid Row Srart",
+        //   grid_row_start
+        // );
+
+        res.push(
+          <div
+            style={{
+              gridRowStart: grid_row_start,
+              gridColumn: `span ${col_span} / span ${col_span}`,
+              gridRowEnd: grid_row_start + row_span,
+              gridColumnStart: starting_col,
+            }}
+            className={`${colors[colorindex]} p-1 ${colors_hover[colorindex]}`}
+          >
+            <p className="text-slate-800">{course.courseName}</p>
+          </div>
+        );
+      }
     });
 
     return res;
