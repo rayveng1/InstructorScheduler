@@ -56,22 +56,36 @@ export default function SchedulesPage() {
     let res: any = [];
 
     schedule.courses.map((course: Course, index) => {
-      const starting_col = `col-start-${Math.min(...course.courseDays) + 1}`;
-      const col_span = `col-span-${course.courseDays.length}`;
+      const starting_col = Math.min(...course.courseDays) + 1;
+      const col_span = course.courseDays.length;
 
-      const row_span = `row-span-${timeDifference(
-        course.courseStart,
-        course.courseEnd
-      )}`;
+      const row_span = timeDifference(course.courseStart, course.courseEnd);
+
+      const grid_row_start = 2 + timeDifference("7:15", course.courseStart);
+
+      console.log(
+        course.courseName,
+        "Starting Col",
+        starting_col,
+        "Col Span",
+        col_span,
+        "Row Span",
+        row_span,
+        "Grid Row Srart",
+        grid_row_start
+      );
 
       const colorindex = getRandomInt(colors.length - 1);
 
       res.push(
         <div
           style={{
-            gridRowStart: 2 + timeDifference("7:15", course.courseStart),
+            gridRowStart: grid_row_start,
+            gridColumn: `span ${col_span} / span ${col_span}`,
+            gridRowEnd: grid_row_start + row_span,
+            gridColumnStart: starting_col,
           }}
-          className={`${col_span} ${colors[colorindex]} ${row_span} ${starting_col} p-1 ${colors_hover[colorindex]}`}
+          className={`${colors[colorindex]} p-1 ${colors_hover[colorindex]}`}
         >
           <p className="text-slate-800">{course.courseName}</p>
         </div>

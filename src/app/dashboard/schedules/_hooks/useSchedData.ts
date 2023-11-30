@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { Schedule } from "../_static/dummy_data";
+import {
+  Schedule,
+  dummy_schedule_data,
+  dummy_schedule_data_2,
+} from "../_static/dummy_data";
 
 export default function useSchedData(selectedPage: number): {
   isLoading: boolean;
