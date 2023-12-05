@@ -75,11 +75,17 @@ export default function SchedulesPage() {
               gridColumnStart: starting_col,
             }}
             className={`${colors[colorindex]} p-1 ${colors_hover[colorindex]} relative group`}
+            data-course={course.courseName}
           >
             <button
               className="absolute invisible top-1 right-1 group-hover:visible"
-              onClick={(e) => {
-                e.currentTarget.parentElement?.classList.add("hidden");
+              onClick={() => {
+                const toDelete = document.querySelectorAll(
+                  `div[data-course='${course.courseName}']`
+                );
+                for (let i = 0; i < toDelete.length; i++) {
+                  toDelete[i].classList.add("hidden");
+                }
               }}
             >
               <svg
