@@ -66,18 +66,6 @@ export default function SchedulesPage() {
 
         const grid_row_start = 2 + timeDifference("7:15", course.courseStart);
 
-        // console.log(
-        //   course.courseName,
-        //   "Starting Col",
-        //   starting_col,
-        //   "Col Span",
-        //   col_span,
-        //   "Row Span",
-        //   row_span,
-        //   "Grid Row Srart",
-        //   grid_row_start
-        // );
-
         res.push(
           <div
             style={{
@@ -86,8 +74,27 @@ export default function SchedulesPage() {
               gridRowEnd: grid_row_start + row_span,
               gridColumnStart: starting_col,
             }}
-            className={`${colors[colorindex]} p-1 ${colors_hover[colorindex]}`}
+            className={`${colors[colorindex]} p-1 ${colors_hover[colorindex]} relative group`}
           >
+            <button
+              className="absolute invisible top-1 right-1 group-hover:visible"
+              onClick={(e) => {
+                e.currentTarget.parentElement?.classList.add("hidden");
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
             <p className="text-slate-800">{course.courseName}</p>
           </div>
         );
