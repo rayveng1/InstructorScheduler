@@ -7,7 +7,7 @@ import PrefsWorkflow from "./_components/PrefsWorkflow";
 import useSchedData from "./_hooks/useSchedData";
 
 export default function SchedulesPage() {
-  const [isFav, setIsFav] = useState<boolean>(false);
+  const [isFav, setIsFav] = useState<number>();
   const [selectedSchedule, setSelectedSchedule] = useState<number>(0);
   const [selectedPage, setSelectedPage] = useState<number>(0);
 
@@ -192,25 +192,29 @@ export default function SchedulesPage() {
             </h1>
             <ul>
               {data &&
-                data.map((schedule, index) => (
-                  <li
-                    onClick={() => {
-                      setSelectedSchedule(index);
-                    }}
-                    className={
-                      selectedSchedule === index
-                        ? `border-l-4 border-utdorange bg-utdorange/20 m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 dark:hover:border-gray-800 pr-6`
-                        : `m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 dark:hover:border-gray-800 pr-6`
-                    }
-                  >
-                    <h1 className="font-bold">{schedule.scheduleName}</h1>
-                    <p className="text-ellipsis overflow-hidden whitespace-nowrap">
-                      {schedule.courses
-                        .map((item) => item.courseName)
-                        .join(" ")}
-                    </p>
-                  </li>
-                ))}
+                data.map((schedule, index) => {
+                  if (isFav === undefined || index === isFav) {
+                    return (
+                      <li
+                        onClick={() => {
+                          setSelectedSchedule(index);
+                        }}
+                        className={
+                          selectedSchedule === index
+                            ? `border-l-4 border-utdorange bg-utdorange/20 m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 dark:hover:border-gray-800 pr-6`
+                            : `m-4 p-2 cursor-pointer relative h-15 focus:outline-none dark:hover:bg-gray-600 dark:hover:border-gray-800 pr-6`
+                        }
+                      >
+                        <h1 className="font-bold">{schedule.scheduleName}</h1>
+                        <p className="text-ellipsis overflow-hidden whitespace-nowrap">
+                          {schedule.courses
+                            .map((item) => item.courseName)
+                            .join(" ")}
+                        </p>
+                      </li>
+                    );
+                  }
+                })}
             </ul>
           </div>
           <div className="basis-2/3 bg-slate-100 rounded-r-lg overflow-y-auto relative min-w-[800px]">
@@ -222,10 +226,16 @@ export default function SchedulesPage() {
             </div>
 
             <div
-              onClick={() => setIsFav(!isFav)}
+              onClick={() => {
+                if (isFav !== undefined) {
+                  setIsFav(undefined);
+                } else {
+                  setIsFav(selectedSchedule);
+                }
+              }}
               className="shadow rounded-full bg-white z-100 p-3 sticky left-2 bottom-2 w-max"
             >
-              {isFav ? (
+              {isFav !== undefined ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
